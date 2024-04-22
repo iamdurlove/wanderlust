@@ -41,7 +41,7 @@ pipeline{
         }
         stage("Deploy - Mongo Data import"){
             steps{
-                sh "docker exec -it frontend sh -c 'mongoimport --db wanderlust --collection posts --file /data/sample_posts.json --jsonArray'"
+                sh "docker exec -it backend sh -c 'mongoimport --db wanderlust --collection posts --file /data/sample_posts.json --jsonArray'"
             }
         }
     }
