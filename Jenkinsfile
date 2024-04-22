@@ -39,5 +39,10 @@ pipeline{
                 sh "docker-compose up -d --build"
             }
         }
+        stage("Deploy - Mongo Data import"){
+            steps{
+                sh "docker exec -it frontend sh -c 'mongoimport --db wanderlust --collection posts --file /data/sample_posts.json --jsonArray'"
+            }
+        }
     }
 }
